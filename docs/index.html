@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Портал в космос</title>
+
+    <style>
+        :root {
+            --primary-color: white;
+            --secondary-color: gray;
+            --font-color: white;
+        }
+
+        body {
+            background: var(--primary-color);
+            
+        }
+    </style>    
+</head>
+
+<body>
+    <h1 id="your-id-name">Авторизация для входа в портал</h1>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Логин">
+
+    <br><br>
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Пароль">
+
+    <br><br>
+    <input type="button" value="Войти" onclick="login()">
+    <input type="button" value="Очистить" onclick="clearFields()">
+
+    <br><br>
+        <input type="button" onclick="changeTheme('light')" value="Светлая тема">
+        <input type="button" onclick="changeTheme('dark')" value="Тёмная тема">
+</body>
+<script>
+    function login()
+    {
+        elem = document.getElementById('username');
+        username = elem.value;
+        elem.style.background = 'red';
+        elem = document.getElementById('password');
+        password = elem.value;
+        elem.style.background = 'red';
+        if (username == 'admin' && password == '12345'){ 
+        window.open("adminpanel.html");
+        } else if (username == 'user' && password == '00000') {
+        window.open("mercury.html");
+        } else {
+        alert("Неверный логин или пароль!")
+    }
+    }
+    function clearFields(){
+        document.getElementById('username').value="";
+        document.getElementById('password').value="";
+    }
+
+    function changeTheme(themeName) {
+        var primaryColor;
+        var secondaryColor;
+        var fontColor;
+        
+        if (themeName == 'light') {
+            primaryColor == "white";
+            secondaryColor == "gray";
+        }
+
+        if (themeName == 'dark') {
+            primaryColor = "#303030";
+            secondaryColor = "#eee";
+            fontColor = "white";
+        }
+
+        document.documentElement.style.setProperty("--primary-color", primaryColor);
+        document.documentElement.style.setProperty("--secondary-color", secondaryColor);
+    };
+</script>
+
+</html>
