@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Портал в космос</title>
-
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --primary-color: white;
             --secondary-color: gray;
-            --font-color: white;
         }
 
         body {
@@ -20,22 +19,30 @@
 </head>
 
 <body>
-    <h1 id="your-id-name">Авторизация для входа в портал</h1>
+    <div class="form">
 
-    <label for="username">Username:</label>
-    <input type="text" id="username" placeholder="Логин">
+    <h1>Вход</h1>
 
-    <br><br>
-    <label>Password:</label>
-    <input type="password" id="password" placeholder="Пароль">
+    <div class="input-form">
+        <input type="text" id="username" placeholder="Логин">
+    </div>
 
-    <br><br>
-    <input type="button" value="Войти" onclick="login()">
-    <input type="button" value="Очистить" onclick="clearFields()">
+    <div class="input-form">
+        <input type="password" id="password" placeholder="Пароль">
+    </div>
 
-    <br><br>
-        <input type="button" onclick="changeTheme('light')" value="Светлая тема">
-        <input type="button" onclick="changeTheme('dark')" value="Тёмная тема">
+    <div class="input-form">
+        <input type="submit" onclick="login()" value="Войти">
+    </div>
+
+    <div class="clear">
+        <input type="submit" onclick="clearFields()" value="Очистить">
+    </div>
+
+    <div class="theme">
+        <input type="submit" onclick="changeTheme('dark')" value="Тёмная тема">
+        <input type="submit" onclick="changeTheme('light')" value="Светлая тема">
+    </div>
 </body>
 <script>
     function login()
@@ -64,7 +71,6 @@
     function changeTheme(themeName) {
         var primaryColor;
         var secondaryColor;
-        var fontColor;
         
         if (themeName == 'light') {
             primaryColor == "white";
@@ -74,7 +80,6 @@
         if (themeName == 'dark') {
             primaryColor = "#303030";
             secondaryColor = "#eee";
-            fontColor = "white";
         }
 
         document.documentElement.style.setProperty("--primary-color", primaryColor);
